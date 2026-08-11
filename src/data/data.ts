@@ -206,31 +206,6 @@ export const PORTFOLIO_DATA = {
       tableauUrl: "https://public.tableau.com",
       githubUrl: "https://github.com/aryan13a",
       featured: true
-    },
-    {
-      id: "e-commerce-rfm",
-      title: "E-Commerce Customer Lifetime Value & RFM Segmentation",
-      period: "Jan 2026",
-      role: "Analytics Engineer",
-      summary: "Recency, Frequency, and Monetary (RFM) clustering on 50,000+ transaction logs to optimize customer retention campaigns.",
-      fullDescription: [
-        "Processed 50,000+ e-commerce transaction logs using Python (Pandas) and SQL to calculate RFM scores for over 12,000 active customers.",
-        "Applied K-Means clustering in Scikit-learn to segment users into Champions, Loyalists, At-Risk, and Hibernating tiers.",
-        "Built a dynamic Power BI report with customer lifetime value forecasting and automated re-engagement triggers."
-      ],
-      techStack: ["Python", "SQL", "Power BI", "Scikit-learn"],
-      stats: [
-        { label: "Transactions Processed", value: "50,000+", subtext: "Processed via Python ETL" },
-        { label: "Customer Tiers", value: "4 Clusters", subtext: "RFM Segmentation" },
-        { label: "Revenue Recovery Potential", value: "18.5%", subtext: "Targeted campaign lift" },
-        { label: "Customer Base", value: "12,000+", subtext: "Unique profiles" }
-      ],
-      insights: [
-        "Champions (top 8% of customers) contributed 34% of net annual repeat revenue.",
-        "Automated win-back triggers for At-Risk cohort showed an estimated 18.5% recovery rate in simulation."
-      ],
-      githubUrl: "https://github.com/aryan13a",
-      featured: false
     }
   ] as Project[],
 
