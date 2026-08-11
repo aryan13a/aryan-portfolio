@@ -11,7 +11,8 @@ import {
   Check,
   Send,
   Sparkles,
-  MessageSquare
+  MessageSquare,
+  Terminal
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import confetti from "canvas-confetti";
@@ -63,6 +64,10 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 relative">
+      
+      {/* Section Axis Divider */}
+      <div className="axis-divider max-w-7xl mx-auto px-4" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -72,9 +77,10 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/20 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-medium"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-medium"
           >
-            <span>08 // GET IN TOUCH</span>
+            <Terminal className="w-3.5 h-3.5" />
+            <span>08 // TRANSMIT_MESSAGE</span>
           </motion.div>
 
           <motion.h2
@@ -82,7 +88,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+            className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tighter"
           >
             Let&apos;s Connect &amp; Collaborate
           </motion.h2>
@@ -94,7 +100,7 @@ export function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl mx-auto"
           >
-            Open for Data Analyst full-time opportunities, analytics projects, and technical discussions.
+            Open for Data Analyst full-time roles, analytics projects, and technical discussions.
           </motion.p>
         </div>
 
@@ -110,16 +116,16 @@ export function Contact() {
             className="lg:col-span-5 space-y-4"
           >
             {/* Email Card */}
-            <div className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all flex items-center justify-between group">
+            <div className="linear-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center justify-between group">
               <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-500">
+                <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase font-mono tracking-wider text-slate-400">Email Me</p>
+                  <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400">Email Me</p>
                   <a
                     href={`mailto:${personal.email}`}
-                    className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-cyan-500 transition-colors"
+                    className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-cyan-400 transition-colors"
                   >
                     {personal.email}
                   </a>
@@ -127,24 +133,24 @@ export function Contact() {
               </div>
               <button
                 onClick={() => copyToClipboard(personal.email, "email")}
-                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-cyan-500 transition-colors"
+                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-500 hover:text-cyan-400 transition-colors border border-slate-200 dark:border-slate-800"
                 title="Copy Email"
               >
-                {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 
             {/* Phone Card */}
-            <div className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all flex items-center justify-between group">
+            <div className="linear-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center justify-between group">
               <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-500">
+                <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase font-mono tracking-wider text-slate-400">Call / WhatsApp</p>
+                  <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400">Call / WhatsApp</p>
                   <a
                     href={`tel:${personal.phone.replace(/\s+/g, '')}`}
-                    className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-cyan-500 transition-colors"
+                    className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-cyan-400 transition-colors"
                   >
                     {personal.phone}
                   </a>
@@ -152,20 +158,20 @@ export function Contact() {
               </div>
               <button
                 onClick={() => copyToClipboard(personal.phone, "phone")}
-                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-cyan-500 transition-colors"
+                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-500 hover:text-cyan-400 transition-colors border border-slate-200 dark:border-slate-800"
                 title="Copy Phone"
               >
-                {copiedPhone ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 
             {/* Location Card */}
-            <div className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500">
+            <div className="linear-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+              <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs uppercase font-mono tracking-wider text-slate-400">Based In</p>
+                <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400">Based In</p>
                 <p className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                   {personal.location}
                 </p>
@@ -173,8 +179,8 @@ export function Contact() {
             </div>
 
             {/* Social Buttons */}
-            <div className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
-              <p className="text-xs uppercase font-mono tracking-wider text-slate-400 font-bold">
+            <div className="linear-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+              <p className="text-[10px] uppercase font-mono tracking-wider text-slate-400 font-bold">
                 Professional Networks
               </p>
               <div className="grid grid-cols-2 gap-3">
@@ -182,7 +188,7 @@ export function Contact() {
                   href={personal.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900 text-white font-medium text-xs hover:bg-slate-800 transition-colors"
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900 text-white font-medium text-xs hover:bg-slate-800 transition-colors border border-slate-800"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub Profile</span>
@@ -201,7 +207,7 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Right Contact Form */}
+          {/* Right Direct Message Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -209,10 +215,10 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-cyan-500" />
-                <span>Send a Direct Message</span>
+            <div className="linear-card p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 font-mono">
+                <MessageSquare className="w-5 h-5 text-cyan-400" />
+                <span>$ send_message --recipient=aryan</span>
               </h3>
 
               {submitted ? (
@@ -244,7 +250,7 @@ export function Contact() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
                       />
                     </div>
 
@@ -258,7 +264,7 @@ export function Contact() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
                       />
                     </div>
                   </div>
@@ -272,7 +278,7 @@ export function Contact() {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="Data Analyst Opportunity / Project Inquiry"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
                     />
                   </div>
 
@@ -286,7 +292,7 @@ export function Contact() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Hi Aryan, I reviewed your portfolio projects and would like to discuss..."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 resize-none"
                     />
                   </div>
 

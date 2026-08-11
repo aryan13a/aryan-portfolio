@@ -5,13 +5,23 @@ import React from "react";
 export function BackgroundGrid() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-60" />
+      {/* Linear Data Grid Mesh */}
+      <div className="absolute inset-0 bg-grid-mesh opacity-80" />
       
-      {/* Subtle Radial Glows */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: "8s" }} />
-      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-blue-600/10 dark:bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-teal-500/10 dark:bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Ambient Radial Beams */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[52rem] h-[26rem] bg-gradient-to-b from-cyan-500/15 via-indigo-500/10 to-transparent blur-3xl rounded-full pointer-events-none" />
+      
+      <div className="absolute top-1/3 -left-40 w-[30rem] h-[30rem] bg-cyan-600/10 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: "10s" }} />
+      
+      <div className="absolute top-2/3 -right-40 w-[30rem] h-[30rem] bg-indigo-600/10 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Grid Axis Crosshairs */}
+      <div className="absolute top-20 left-10 text-[10px] font-mono text-cyan-500/20 hidden md:block">
+        GRID_LOC [36.7, -119.4] • SYS_OK
+      </div>
+      <div className="absolute bottom-10 right-10 text-[10px] font-mono text-cyan-500/20 hidden md:block">
+        ETL_STREAM :: LIVE • REFRESH 60s
+      </div>
     </div>
   );
 }

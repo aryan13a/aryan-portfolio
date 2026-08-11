@@ -9,8 +9,9 @@ import {
   BarChart3,
   Cpu,
   Brain,
-  CheckCircle,
-  FileCheck2
+  FileCheck2,
+  Terminal,
+  CheckCircle2
 } from "lucide-react";
 
 export function About() {
@@ -19,32 +20,36 @@ export function About() {
   const pillars = [
     {
       title: "Quantitative Foundation",
-      description: "Rooted in Physics, Mathematics & Economics from St. Xavier's College Jaipur. Strong mathematical intuition for statistical distributions, hypothesis testing, and econometric modeling.",
+      description: "Rooted in Physics, Mathematics & Economics from St. Xavier's College Jaipur. Strong mathematical intuition for statistical distributions and econometric modeling.",
       icon: GraduationCap,
-      color: "from-blue-500 to-cyan-500"
+      color: "text-cyan-400"
     },
     {
-      title: "End-to-End Pipeline Engineering",
-      description: "Proficient in converting unstructured operational logs into structured SQL tables and Pandas dataframes, executing clean ETL transformations, and modeling scalable data schemas.",
+      title: "Pipeline Engineering",
+      description: "Proficient in converting unstructured operational logs into structured SQL tables and Pandas dataframes, executing clean ETL transformations.",
       icon: BarChart3,
-      color: "from-emerald-500 to-teal-500"
+      color: "text-emerald-400"
     },
     {
       title: "Executive Storytelling",
-      description: "Translates complex multi-variable analysis into crisp executive KPI cards, action-driven Tableau dashboards, and high-impact business decision recommendations.",
+      description: "Translates complex multi-variable analysis into crisp executive KPI cards, action-driven Tableau dashboards, and decision recommendations.",
       icon: Award,
-      color: "from-amber-500 to-orange-500"
+      color: "text-amber-400"
     },
     {
       title: "AI-Augmented Analytics",
-      description: "Leverages Anthropic Claude AI, Prompt Engineering, Gemini API, and Vertex AI to accelerate exploratory analysis, code optimization, and data synthesis.",
+      description: "Leverages Anthropic Claude AI, Prompt Engineering, Gemini API, and Vertex AI to accelerate exploratory analysis and code optimization.",
       icon: Cpu,
-      color: "from-purple-500 to-indigo-500"
+      color: "text-indigo-400"
     }
   ];
 
   return (
     <section id="about" className="py-20 relative">
+      
+      {/* Section Axis Divider */}
+      <div className="axis-divider max-w-7xl mx-auto px-4" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -54,19 +59,22 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/20 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-medium"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-medium"
           >
-            <span>01 // ABOUT ME</span>
+            <Terminal className="w-3.5 h-3.5" />
+            <span>01 // QUANTITATIVE_BACKGROUND</span>
           </motion.div>
+          
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+            className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tighter"
           >
             Bridging Quantitative Rigor &amp; Business Strategy
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,78 +82,84 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl mx-auto"
           >
-            From mathematical modeling to executive BI dashboards — how I help organizations make confident, data-backed moves.
+            From mathematical modeling to executive BI dashboards — turning raw operational data into actionable decisions.
           </motion.p>
         </div>
 
-        {/* About Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        {/* Linear Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
           
-          {/* Bio Text Column */}
+          {/* Main Bio Feature Card (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-5 text-left"
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 linear-card p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
           >
-            <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-4">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <Brain className="w-5 h-5 text-cyan-500" />
-                <span>Analytical Mindset &amp; Background</span>
-              </h3>
+            <div className="space-y-4">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  <Brain className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                  Analytical Mindset &amp; Background
+                </h3>
+              </div>
 
               {personal.aboutExpanded.map((paragraph, index) => (
                 <p key={index} className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
+            </div>
 
-              {/* Key Credentials Badges */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <FileCheck2 className="w-4 h-4 text-cyan-500 shrink-0" />
-                  <div className="text-left">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-slate-200">Google Certified</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">Data Analytics Professional</p>
-                  </div>
+            {/* Credential Badges Footer */}
+            <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                <FileCheck2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                <div>
+                  <p className="text-xs font-bold text-slate-900 dark:text-slate-200">Google Certified</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">Data Analytics Professional</p>
                 </div>
+              </div>
 
-                <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <GraduationCap className="w-4 h-4 text-blue-500 shrink-0" />
-                  <div className="text-left">
-                    <p className="text-xs font-semibold text-slate-900 dark:text-slate-200">BSc Degree</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">Physics, Math &amp; Economics</p>
-                  </div>
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                <GraduationCap className="w-4 h-4 text-indigo-400 shrink-0" />
+                <div>
+                  <p className="text-xs font-bold text-slate-900 dark:text-slate-200">BSc Degree</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">Physics, Math &amp; Economics</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Pillars Cards Grid */}
+          {/* 4 Pillars Grid (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4"
           >
             {pillars.map((pillar, idx) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={idx}
-                  className="glass-panel p-5 rounded-2xl border border-slate-200 dark:border-slate-800 text-left hover:border-cyan-500/50 transition-all hover:scale-[1.02] group"
+                  className="linear-card linear-card-hover p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start gap-4 group"
                 >
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${pillar.color} flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-5 h-5" />
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shrink-0 group-hover:scale-110 transition-transform">
+                    <Icon className={`w-5 h-5 ${pillar.color}`} />
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {pillar.description}
-                  </p>
+                  <div className="space-y-1">
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {pillar.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}

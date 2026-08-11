@@ -3,13 +3,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { PORTFOLIO_DATA } from "../data/data";
-import { GraduationCap, MapPin, Calendar, BookOpen, Award, CheckCircle2 } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, BookOpen, Award, CheckCircle2, Terminal } from "lucide-react";
 
 export function Education() {
   const { education } = PORTFOLIO_DATA;
 
   return (
     <section id="education" className="py-20 relative">
+      
+      {/* Section Axis Divider */}
+      <div className="axis-divider max-w-7xl mx-auto px-4" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -19,9 +23,10 @@ export function Education() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/20 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-medium"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-medium"
           >
-            <span>05 // ACADEMIC BACKGROUND</span>
+            <Terminal className="w-3.5 h-3.5" />
+            <span>05 // ACADEMIC_FOUNDATIONS</span>
           </motion.div>
 
           <motion.h2
@@ -29,9 +34,9 @@ export function Education() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+            className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tighter"
           >
-            Education &amp; Quantitative Foundations
+            Education &amp; Quantitative Rigor
           </motion.h2>
         </div>
 
@@ -43,7 +48,7 @@ export function Education() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-left"
         >
-          <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl relative overflow-hidden">
+          <div className="linear-card p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl relative overflow-hidden">
             
             {/* Top Accent Gradient Bar */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500" />
@@ -52,15 +57,15 @@ export function Education() {
               
               {/* Left Column: Institution & Degree */}
               <div className="lg:col-span-6 space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 dark:bg-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 font-bold mb-2">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-bold mb-2 border border-cyan-500/20">
                   <GraduationCap className="w-6 h-6" />
                 </div>
 
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-xs font-semibold mb-2">
+                  <span className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-mono text-xs font-semibold mb-2 border border-cyan-500/20">
                     {education.period}
                   </span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                     {education.degree}
                   </h3>
                   <p className="text-base font-semibold text-cyan-600 dark:text-cyan-400 mt-1">
@@ -72,20 +77,20 @@ export function Education() {
                   <p className="font-semibold text-slate-800 dark:text-slate-200">
                     {education.institution}
                   </p>
-                  <p className="flex items-center gap-1 text-xs">
-                    <MapPin className="w-3.5 h-3.5 text-cyan-500" />
+                  <p className="flex items-center gap-1 text-xs font-mono">
+                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
                     {education.location}
                   </p>
                 </div>
               </div>
 
               {/* Right Column: Key Coursework & Academic Highlights */}
-              <div className="lg:col-span-6 space-y-6 lg:border-l lg:border-slate-200 dark:lg:border-slate-800 lg:pl-8">
+              <div className="lg:col-span-6 space-y-6 lg:border-l lg:border-slate-200 dark:lg:border-slate-800/80 lg:pl-8">
                 
                 {/* Coursework Tags */}
                 <div className="space-y-2">
                   <h4 className="text-xs uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-bold">
-                    <BookOpen className="w-4 h-4 text-cyan-500" />
+                    <BookOpen className="w-4 h-4 text-cyan-400" />
                     <span>Specialized Quantitative Coursework</span>
                   </h4>
                   <div className="flex flex-wrap gap-2 pt-1">
@@ -103,13 +108,13 @@ export function Education() {
                 {/* Highlights Bullet points */}
                 <div className="space-y-2">
                   <h4 className="text-xs uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-bold">
-                    <Award className="w-4 h-4 text-amber-500" />
+                    <Award className="w-4 h-4 text-amber-400" />
                     <span>Academic &amp; Campus Distinction</span>
                   </h4>
                   <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                     {education.highlights.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}

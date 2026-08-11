@@ -10,7 +10,8 @@ import {
   Wrench,
   Sparkles,
   CheckCircle2,
-  Terminal
+  Terminal,
+  Activity
 } from "lucide-react";
 
 export function Skills() {
@@ -34,6 +35,10 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-20 relative">
+      
+      {/* Section Axis Divider */}
+      <div className="axis-divider max-w-7xl mx-auto px-4" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -43,9 +48,10 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/20 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-medium"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-medium"
           >
-            <span>02 // TECHNICAL SKILLS</span>
+            <Activity className="w-3.5 h-3.5" />
+            <span>02 // TECH_MATRIX &amp; TOOLING</span>
           </motion.div>
 
           <motion.h2
@@ -53,9 +59,9 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight"
+            className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tighter"
           >
-            Technical Stack &amp; Tooling
+            Technical Stack &amp; Tooling Matrix
           </motion.h2>
 
           <motion.p
@@ -65,7 +71,7 @@ export function Skills() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl mx-auto"
           >
-            A comprehensive overview of programming languages, analytics libraries, visual BI platforms, and modern GenAI integrations.
+            Programming languages, analytics libraries, BI platforms, and Next-Gen AI integrations.
           </motion.p>
         </div>
 
@@ -83,21 +89,30 @@ export function Skills() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-all ${
+                className={`relative px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all ${
                   isActive
-                    ? "bg-cyan-500 text-white shadow-lg shadow-cyan-500/25 font-semibold scale-105"
-                    : "bg-slate-200/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700"
+                    ? "text-slate-900 dark:text-white font-bold"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
-                {categoryIcons[cat]}
-                <span>{cat}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeSkillCategoryTab"
+                    className="absolute inset-0 bg-cyan-500/20 border border-cyan-500/40 rounded-xl"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  {categoryIcons[cat]}
+                  <span>{cat}</span>
+                </span>
               </button>
             );
           })}
         </motion.div>
 
-        {/* Skills Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        {/* Terminal Style Data Table Matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
           <AnimatePresence mode="wait">
             {filteredCategories.map((catGroup) => (
               <motion.div
@@ -106,11 +121,12 @@ export function Skills() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
+                className="linear-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-3 pb-4 mb-5 border-b border-slate-200 dark:border-slate-800">
-                    <div className="p-2.5 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400">
+                  {/* Category Header */}
+                  <div className="flex items-center gap-3 pb-4 mb-5 border-b border-slate-200 dark:border-slate-800/80">
+                    <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                       {categoryIcons[catGroup.category] || <Terminal className="w-5 h-5" />}
                     </div>
                     <div>
@@ -123,12 +139,13 @@ export function Skills() {
                     </div>
                   </div>
 
+                  {/* Skills Table List */}
                   <div className="space-y-4">
-                    {catGroup.skills.map((skill) => (
+                    {catGroup.skills.map((skill, sIdx) => (
                       <div key={skill.name} className="space-y-1.5">
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-cyan-500" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
                             {skill.name}
                           </span>
                           {skill.highlight && (
@@ -138,14 +155,14 @@ export function Skills() {
                           )}
                         </div>
 
-                        {/* Animated Progress Bar */}
-                        <div className="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        {/* Progress Indicator */}
+                        <div className="h-1.5 w-full bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="h-full bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"
+                            transition={{ duration: 1, delay: sIdx * 0.1, ease: "easeOut" }}
+                            className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 rounded-full"
                           />
                         </div>
                       </div>
