@@ -111,14 +111,28 @@ export function Certifications() {
                   </h3>
                 </div>
 
-                {/* Bottom Category Tag */}
+                {/* Bottom Category Tag & Verification Action */}
                 <div className="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
                   <span className="text-[11px] font-mono text-cyan-600 dark:text-cyan-400 font-medium">
                     {cert.category}
                   </span>
-                  <span className="text-[10px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500 font-semibold">
-                    Verified Credentials
-                  </span>
+
+                  {cert.credentialUrl ? (
+                    <a
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-bold transition-all hover:scale-105"
+                      title="Verify Badge & Certificate"
+                    >
+                      <span>Verify</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  ) : (
+                    <span className="text-[10px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500 font-semibold">
+                      Verified Credential
+                    </span>
+                  )}
                 </div>
               </motion.div>
             ))}

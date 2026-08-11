@@ -303,11 +303,30 @@ export const PORTFOLIO_DATA = {
   certifications: [
     {
       id: "claude-101",
-      title: "Claude 101 / Claude Code / AI Fluency",
+      title: "Claude 101",
       issuer: "Anthropic",
       category: "AI & Cloud",
       date: "2026",
-      badgeColor: "from-amber-500 to-orange-600"
+      badgeColor: "from-amber-500 to-orange-600",
+      credentialUrl: "https://verify.skilljar.com/c/nueprtsx3dc8"
+    },
+    {
+      id: "claude-code-101",
+      title: "Claude Code 101",
+      issuer: "Anthropic",
+      category: "AI & Cloud",
+      date: "2026",
+      badgeColor: "from-amber-500 to-orange-600",
+      credentialUrl: "https://verify.skilljar.com/c/vwmrjk7aonjr"
+    },
+    {
+      id: "ai-fluency",
+      title: "AI Fluency",
+      issuer: "Anthropic",
+      category: "AI & Cloud",
+      date: "2026",
+      badgeColor: "from-amber-500 to-orange-600",
+      credentialUrl: "https://verify.skilljar.com/c/tk2owvff4ywv"
     },
     {
       id: "google-data-analytics",
@@ -315,23 +334,26 @@ export const PORTFOLIO_DATA = {
       issuer: "Google / Coursera",
       category: "Data Analytics",
       date: "2025",
-      badgeColor: "from-blue-500 to-cyan-500"
+      badgeColor: "from-blue-500 to-cyan-500",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/NZN0BBYGWM1R"
     },
     {
       id: "huggingface-ai",
-      title: "AI Fundamentals",
+      title: "AI Agents Fundamentals",
       issuer: "Hugging Face",
       category: "AI & Cloud",
       date: "2026",
-      badgeColor: "from-yellow-400 to-amber-500"
+      badgeColor: "from-yellow-400 to-amber-500",
+      credentialUrl: "https://us.aws.cdn.hf.co/xet-bridge-us/67a47037749ea2c4b9fafd4b/53741d5c96e80e34d49213c2b5b7ced7935c2e2d8076ad84bdf4c180a473ef39?response-content-disposition=inline%3B+filename*%3DUTF-8%27%272026-05-18.png%3B+filename%3D%222026-05-18.png%22%3B&X-Xet-Cas-Uid=6a0ad2e74baffe9f632832b4&user_id=6a0ad2e74baffe9f632832b4&response-content-type=image%2Fpng&Expires=1786440164&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjdhNDcwMzc3NDllYTJjNGI5ZmFmZDRiLzUzNzQxZDVjOTZlODBlMzRkNDkyMTNjMmI1YjdjZWQ3OTM1YzJlMmQ4MDc2YWQ4NGJkZjRjMTgwYTQ3M2VmMzlcXD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3MjAyNi0wNS0xOC5wbmclM0IrZmlsZW5hbWUlM0QlMjIyMDI2LTA1LTE4LnBuZyUyMiUzQiZYLVhldC1DYXMtVWlkPTZhMGFkMmU3NGJhZmZlOWY2MzI4MzJiNCZ1c2VyX2lkPTZhMGFkMmU3NGJhZmZlOWY2MzI4MzJiNCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc4NjQ0MDE2NH19fV19&Signature=MEQCIF3-gOnRRVM38SM7iFMzTnLc2eb0MB09QE0u2eXwo4pOAiBBaQPmQwCBKuVLxuW-oJTeYbyMe3KuE0Ohk1z2xUWyng__&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F"
     },
     {
       id: "oracle-oci",
-      title: "Oracle Cloud Infrastructure 2025 Foundations Associate",
+      title: "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
       issuer: "Oracle",
       category: "AI & Cloud",
       date: "2025",
-      badgeColor: "from-red-500 to-rose-600"
+      badgeColor: "from-red-500 to-rose-600",
+      credentialUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=FB80C2E98D73AF879B4807C7D3AE0C724D63ADC44B2810A1DEACD7B4795DD8EB"
     },
     {
       id: "ibm-python",
@@ -339,7 +361,8 @@ export const PORTFOLIO_DATA = {
       issuer: "IBM",
       category: "Data Analytics",
       date: "2025",
-      badgeColor: "from-blue-600 to-indigo-600"
+      badgeColor: "from-blue-600 to-indigo-600",
+      credentialUrl: "https://www.credly.com/badges/542fd80c-48cd-4a86-b8fe-a519891e8ac5/linked_in_profile"
     },
     {
       id: "google-genai",
@@ -363,7 +386,8 @@ export const PORTFOLIO_DATA = {
       issuer: "Deloitte (via Forage)",
       category: "Foundations",
       date: "2024",
-      badgeColor: "from-green-600 to-emerald-700"
+      badgeColor: "from-green-600 to-emerald-700",
+      credentialUrl: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_HhZ8Z3qH9rooWfZHb_1749629216583_completion_certificate.pdf"
     },
     {
       id: "ms-genai",
