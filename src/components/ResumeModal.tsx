@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PORTFOLIO_DATA } from "../data/data";
-import { X, Download, Printer, FileText, CheckCircle2, Award, Briefcase, GraduationCap } from "lucide-react";
+import { X, Download, Printer, FileText, ExternalLink } from "lucide-react";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -40,28 +40,61 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           className="relative w-full max-w-4xl glass-panel bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl z-10 my-8 text-left max-h-[92vh] overflow-y-auto"
         >
           {/* Header Controls */}
-          <div className="flex items-center justify-between pb-6 mb-6 border-b border-slate-800">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
             <div className="flex items-center gap-2">
               <FileText className="w-5 h-5 text-cyan-400" />
               <h2 className="text-lg font-bold text-white font-mono">
-                {personal.name} — Curriculum Vitae
+                {personal.name} — Resume
               </h2>
             </div>
-            <div className="flex items-center gap-2">
+            
+            <div className="flex flex-wrap items-center gap-2">
+              <a
+                href="/Aryan_Kumawat_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download="Aryan_Kumawat_Resume.pdf"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-mono font-semibold transition-all shadow-md shadow-cyan-500/20"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download PDF File</span>
+              </a>
+
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-medium transition-colors"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-medium transition-colors"
               >
                 <Printer className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Print / Save PDF</span>
+                <span>Print</span>
               </button>
+
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition-colors"
+                className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
+          </div>
+
+          {/* Embedded Official PDF Viewer Banner */}
+          <div className="mb-6 p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center gap-3">
+              <FileText className="w-6 h-6 text-cyan-400 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-white">Aryan_Kumawat_Resume.pdf</p>
+                <p className="text-[11px] text-slate-300">Official resume document attached directly from desktop CV folder.</p>
+              </div>
+            </div>
+            <a
+              href="/Aryan_Kumawat_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-cyan-400 hover:underline"
+            >
+              <span>Open PDF in New Tab</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
 
           {/* Resume Document Content Area */}
